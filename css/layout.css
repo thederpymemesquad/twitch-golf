@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+input[type="number"] {
+    width: 3em;
+}
+
+.emoticon {
+	background-position: center center;
+	background-repeat: no-repeat;
+	margin: -5px 0;
+	display: inline-block;
+	vertical-align: middle !important;
+	height: 1.5em;
+}
+
+.chat-badges {
+	margin-right: .125em;
+}
+.chat-badges > div {
+	margin-bottom: 1px;
+	border-radius: 2px;
+	height: 1em;
+	min-width: 1em;
+	display: inline-block;
+	vertical-align: middle;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-right: .3em;
+}
+
+.draggable {
+    cursor: move;
+}
+
+#sidebar {
+    /*height: 100%;
+    width: 35%;*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.7;
+    text-align: right;
+    pointer-events: none;
+}
+
+body {
+    overflow: hidden;
+}
+
+#level-info {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+}
+
+#matter-canvas {
+    top: 0;
+    left: 0;
+    position: absolute;
+    cursor: grab;
+    /*height: 100%;
+    width: 70%;*/
+}
+
+#matter-canvas:active {
+    cursor: grabbing;
+}
+
+#chat-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 35vh;
+    width: 35vw;
+    z-index: 1;
+    pointer-events: none;
+    transition-property: all;
+    transition-duration: 250ms;
+}
+
+#chat-box.hidden {
+    bottom: -32.5vh;
+}
+
+#chat-box > #chat-box-buttons {
+    position: absolute;
+    text-align: right;
+    top: -1.5vh;
+    right: -1.5vh;
+    border: 1px solid #ccc;
+    background-color: #555555aa;
+    border-radius: 15px;
+    transition-duration: 250ms;
+    transition-property: all;
+}
+
+#chat-box > #chat-box-buttons > input {
+    width: 3vh;
+    height: 3vh;
+    text-align: center;
+    pointer-events: all;
+    border-width: 2px;
+    border-radius: 50%;
+    border-style: solid;
+    cursor: pointer;
+}
+
+#chat-box > #chat-box-buttons > .zoom-buttons {
+    background-color: #ccc;
+    color: #000;
+}
+
+#chat-box.hidden > #chat-box-buttons {
+    top: -20%;
+    right: 75%;
+}
+
+#chat-area {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+#editor-menu-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+#debug-menu-button {
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+#editor-quick-toggle {
+    position: absolute;
+    top: 3em;
+    left: 0;
+    height: 1.5em;
+}
+
+#editor-menu {
+    z-index: 4;
+    position: fixed;
+    width: 70vw;
+    height: 70vh;
+    top: 15vh;
+    left: 15vw;
+}
+
+#debug-menu {
+    z-index: 4;
+    position: fixed;
+    width: 70vw;
+    height: 70vh;
+    top: 15vh;
+    left: 15vw;
+}
+
+#tooltip {
+    position: fixed;
+    opacity: 0;
+    transform: translate(-100%, 0);
+    text-align: center;
+    overflow: hidden;
+    border-width: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    border: solid;
+    height: auto;
+    /*width: 21.6em;*/
+    pointer-events: none;
+    transition-timing-function: linear;
+    transition-duration: 200ms;
+    transition-property: opacity;
+}
+
+#tooltip.visible {
+    opacity: 1;
+    transition-duration: 100ms;
+    transition-delay: 50ms;
+}
+
+.window-content {
+    overflow-y: scroll;
+    overflow-x: visible;
+    height: calc(100% - 1.3em)
+}
+
+.window-draggable {
+    margin: 0;
+    height: 1.3em;
+}
+
+.window-draggable > .window-buttons {
+    top: 0;
+    right: 0;
+    position: absolute;
+    height: 100%;
+}
+
+.window-draggable > input[type="checkbox"] {
+    
+}
+
+::-webkit-scrollbar {
+    width: 0.5em;
+    position: absolute;
+    left: 0;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.582);
+    position: absolute;
+    left: 0;
+}
+
+::-webkit-scrollbar-thumb  {
+    background: #0000ff;
+    border-radius: 1em;
+    position: absolute;
+    left: 0;
+}

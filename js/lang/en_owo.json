@@ -1,0 +1,112 @@
+{
+    "lang": {
+        "name": "OWOnesse",
+        "ver": "0.W.0",
+        "author": "LeOwOtOwOmAs",
+        "id": "en_owo"
+    },
+    "game": {
+        "info": {
+            "lang": "Languwuage",
+            "level": "Level"
+        }
+    },
+    "editor": {
+        "ui": {
+            "menu": {
+                "button": {
+                    "text": "Level Editor Menuwu",
+                    "hover": "Owopens the level editor tools menuwu<br>Yes, level editor"
+                },
+                "delete": {
+                    "text": "Delete Owobjects: ",
+                    "hover": "Will remowove owobjects from the level instead owof placing them"
+                },
+                "object": {
+                    "types": {
+                        "ball": "Place Ball",
+                        "hole": "Place Hole",
+                        "rect": "Rectangle",
+                        "circle": "Circle",
+                        "trap": "Trapezoid",
+                        "regpoly": "Regular Polygon",
+                        "poly": "Polygon",
+                        "tri": "Triangle"
+                    },
+                    "static": {
+                        "text": "Is Static: ",
+                        "hover": "This owoption will make the owobject never mowove"
+                    },
+                    "sides": {
+                        "text": "Sides: ",
+                        "hover": "This owoption is the number of sides for regular polygons, and the maxsides property owof circles if enabed. Doesnt apply towo owother shapes",
+                        "circle": "Enable this towo make sides owoption apply towo circles. Not reccommended"
+                    }
+                },
+                "composite": {
+                    "composite": {
+                        "text": "Composite Owoptions: ",
+                        "hover": "Composites are gruwups of owobjects, they will all have the same properties, but they can be placed in bulk patterns, such as pyramids or grids"
+                    },
+                    "place": "Place Cowomposites: ",
+                    "type": "Cowomposite Type: ",
+                    "types": {
+                        "pyramid": "Pyramid",
+                        "stack": "Stack"
+                    },
+                    "chain": {
+                        "text": "Chain Owobjects: ",
+                        "hover": "This owoption will connect all owobjects with a constraint, making a chain"
+                    },
+                    "size": {
+                        "cols": "Coluwumns",
+                        "rows": "Rowows",
+                        "colgap": "Coluwumn Gap",
+                        "rowgap": "Rowow Gap"
+                    }
+                }
+            },
+            "enable": "Enable Editor: ",
+            "shortcut": "Shortcuwut to toggle the editor owon and owoff"
+        }
+    },
+    "debug": {
+        "menu": {
+            "button": {
+                "text": "Debuwug Menuwu",
+                "hover": "Owopens the debug menuwu, towo enable various testing tuwuls"
+            },
+            "enable": "Enable debuwug mowode",
+            "disable": "Disable debuwug mowode",
+            "info": "Debuwug infowo sidebar",
+            "render": {
+                "cameratarget": "Showo camera target",
+                "enable": "Enable debug render owoptions",
+                "wireframes": "Showo wireframes",
+                "sleeping": "Showo sleeping bodies",
+                "debug": "Showo render debug infowo",
+                "broadphase": "Showo broadphase",
+                "bounds": "Showo renderer bowunds",
+                "velocity": "Showo bowody velowocities",
+                "collisions": "Showo bowody collisions",
+                "separations": "Showo bowody separations",
+                "axes": "Showo bowody axes",
+                "positions": "Showo bowody powositiowons",
+                "angles": "Showo bowody angles",
+                "ids": "Showo bowody ids",
+                "shadows": "Draw shadowos",
+                "vertexs": "showo vertexes",
+                "convexhulls": "convexhulls",
+                "internaledges": "internaledges"
+            }
+        }
+    },
+    "chat": {
+        "zoom": {
+            "in": "Zowom In",
+            "out": "Zowom Owut",
+            "reset": "Reset Zowom"
+        },
+        "toggle": "Toggle Chat"
+    }
+}

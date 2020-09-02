@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "chrome -> twitch golf",
+            "runtimeExecutable": "C:\\Users\\Leotomas\\AppData\\Local\\Google\\Chrome SxS\\Application\\chrome.exe",
+            "runtimeArgs": ["-allow-file-access-from-files"],
+            "file": "index.html",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

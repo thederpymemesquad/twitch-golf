@@ -1,0 +1,64 @@
+.body {
+    background-color: #000;
+    color: #fff;
+}
+
+:root {
+    background-color: #000;
+    color: #fff;
+}
+
+#sidebar {
+    background-color: #00000000;
+    color: #fff;
+}
+
+#main-canvas {
+    background-color: #090909;
+    color: #fff;
+}
+
+#chat-box {
+    background-color: #ffffff22;
+}
+
+#chat-box > div > #toggle-chat-box-button {
+    background-color: #f00;
+}
+
+#chat-box > #chat-box-buttons > * {
+    background-color: #fff;
+    border-color: #000;
+}
+
+.sys-msg {
+    background-color: #000
+}
+
+#chat-box.hidden > * > #toggle-chat-box-button {
+    background-color: #0f0;
+}
+
+#debug-menu-button {
+    background-color: #ffffff22;
+}
+
+#editor-menu {
+    background-color: #000000aa
+}
+
+.window-draggable{
+    background-color: #fff;
+}
+
+.window-draggable > span{
+    color: #000;
+}
+
+#editor-menu-close-button {
+    background-color: #f00;
+}
+
+#debug-menu {
+    background-color: #000000aa
+}

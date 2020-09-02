@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--
+    haha no cookies go brrrrrrr
+-->
+<html>
+    <head>
+        <title>Twitch Golf</title>
+        <link rel='stylesheet' href="./css/layout.css" type='text/css'>
+        <link rel='stylesheet' href="./css/themes/normal.css" type='text/css' id="theme-stylesheet-ref">
+        <!-- External Libraries -->
+        <script src="./js/lib/svg-polyfill.js"></script>
+        <script src="./js/lib/jquery.js"></script>
+        <script src="./js/lib/jqueryui/jquery-ui.js"></script>
+        <link rel='stylesheet' href="./js/lib/jqueryui/jquery-ui.css">
+        <script src="./js/lib/decomp.js"></script>
+        <script src="./js/lib/tmi/tmi.js"></script>
+        <script src="./js/lib/lodash/lodash.js"></script>
+
+        <!-- Custom Library -->
+        <script src="./js/common.js"></script>
+        <script src='./js/objects/TranslateableText.js'></script>
+
+        <!-- Matter.js and Matter.js plugins -->
+        <script src="./js/lib/matter-js/matter.js"></script>
+        <script src="./js/lib/matter-plugins/matter-collide-events.js"></script>
+        
+        <!-- Game Objects -->
+        <script src="./js/objects/Camera.js"></script>
+        <script src="./js/objects/CameraPointOfInterest.js"></script>
+        <script src="./js/objects/TriggerZone.js"></script>
+        <script src="./js/objects/SafeArea.js"></script>
+        <script src="./js/objects/DeathZone.js"></script>
+        <script src="./js/objects/WindZone.js"></script>
+        <script src="./js/objects/Hole.js"></script>
+        <script src="./js/objects/GolfBallAnchor.js"></script>
+        <script src="./js/objects/GolfBall.js"></script>
+        <script src="./js/objects/ChatLogManager.js"></script>
+
+        <script src='./js/objects/LevelEditorLevel.js'></script>
+        <script src='./js/objects/LevelEditor.js'></script>
+
+        <script src='./js/objects/Integration.js'></script>
+
+        <script src="./js/main.js" defer></script>
+    </head>
+
+    <body>
+        <div id="svg-loader" style="display:none">
+            <noscript id="svg-terrain">
+                <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" height="600" id="svg2"><defs id="defs4"/><metadata id="metadata7"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><g transform="translate(0,-452.36218)" id="layer1"><path d="m -104.875,-92.09375 0,768.1875 1045.40625,0 0,-768.1875 z m 792,112.875 34.65625,11.90625 20.78125,0.96875 7.9375,27.71875 14.84375,-0.96875 1,27.71875 -19.8125,2.96875 -17.83323,10.88861 -0.97927,19.79889 -21.76826,41.59622 -16.82611,38.61541 -21.8125,-11.90625 -34.625,-3.9375 -24.78125,5.9375 -7.90625,-2 -24.75,0 -25.73329,-0.98391 -15.31378,13.83209 11.32832,18.83963 40.12327,-2.25028 32.87302,18.58819 19.19178,26.29536 26.63402,26.66748 -32.39197,7.92422 -27.00314,8.90591 -51.49567,-1.96968 -28.71875,-23.76392 -38.59931,-21.77166 -33.50197,0.84141 -15.01258,17.95902 22.03906,12.99888 31.72405,3.22072 -12.59415,20.3177 1.40096,23.85627 -34.66386,2.83963 -34.48373,-10.07244 -21.94059,13.16875 -29.70203,-16.81589 -33.52512,4.78517 -17.95385,-15.67626 6.9233,-24.75342 -6.9375,-22.78588 18.82117,-31.6612 -60.41058,16.83385 -12.875,8.90625 -13.84379,-10.90625 -2.96875,15.84375 -14.84375,7.9375 -10.90625,-2 -14.84375,15.84375 -22.78125,7.9375 -14.84375,6.90625 -12.875,15.84375 25.75,6.9375 22.75,13.875 0,10.875 14.875,2 2.96875,31.6875 14.84375,-1 -2.96875,-17.8125 21.78125,0.96875 3.96875,6.9375 0.96875,21.78125 -0.96875,14.84375 8.90625,8.90625 18.8125,0 30.6875,-18.8125 25.75,4.96875 14.84375,-6.9375 21.78125,8.90625 24.75,4.96875 20.78125,-8.9375 14.875,-0.96875 0.96875,12.875 21.78125,12.875 1,-28.71875 9.90625,0 3.96875,12.875 16.8125,7.90625 c 33.27463,-18.73251 24.47258,-18.82094 53.4734,17.82147 l 26.73948,-24.75556 24.74257,-0.9951 3.96071,21.78218 22.77135,2.98236 12.88861,18.80662 16.81714,-20.79115 21.77351,-15.84158 18.80879,-27.71659 21.81095,-9.90934 16.82334,-16.82457 13.85055,15.85303 8.92605,20.78775 -3.96968,21.78651 15.85056,12.86974 0.96875,21.78125 5.9375,9.90625 2.987,21.76764 -23.75247,1.97091 14.84777,16.84159 6.9177,18.79486 -11.875,12.875 -49.5,2 -17.84375,-10.90625 0,-31.6875 -13.84375,0 -15.84375,13.875 -27.71875,9.90625 -46.53125,22.75 -65.34375,0 -14.875,-16.8125 -17.8125,1 0,23.75 -28.71875,6.9375 -26.71875,-8.90625 3.95204,-23.76578 -28.70668,-0.9901 -22.77228,16.82612 -36.62933,-12.88274 -16.84375,-19.78125 -13.84375,0 -22.78496,11.86603 1.99195,30.68471 -53.4706,7.93843 -18.82766,-22.78744 -32.67018,-22.75371 -42.57859,-16.83168 -7.90625,-14.875 -22.78125,-9.875 -5.9375,-11.90625 -26.730195,-40.57952 -3.96875,-29.71875 -43.5625,-4.9375 L 49.5,318.8125 l -14.84375,-2.96875 0,-11.875 19.804765,-26.75248 28.721225,-2.95266 2.956374,-33.67698 -21.773824,-85.1284 39.59375,-18.8125 14.84375,4.9375 18.8125,-10.875 14.875,13.84375 10.875,-19.8125 30.6875,2 19.8125,-3.96875 6.9375,-19.8125 20.78125,-6.90625 32.6875,-21.78125 45.52073,11.875928 25.73948,40.572092 19.8125,-5.9375 23.75,7.9375 L 400,118.8125 430.6875,112.875 465.34375,97.03125 500,79.21875 l 27.71875,0.96875 22.78125,1 29.6875,-12.875 L 601,51.5 617.82457,77.231745 645.53125,78.21875 648.5,38.625 z" transform="translate(0,452.36218)" id="path3780" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /></g></svg>
+            </noscript>
+        </div>
+
+        <div id='tooltip' style='z-index: 100;'>
+            <span id='tooltip-header'>hey</span>
+        </div>
+
+        <canvas id='matter-canvas'></canvas>
+
+        <div id='level-info'>
+            <div>-------------</div>
+            <div data-tl="game.info.name"></div>
+            <div><span data-tl="game.info.ver"></span>: <span id="gi-version">version</span></div>
+            <div><span data-tl="game.info.build"></span>: <span id="gi-build">build</span></div>
+            <div>-------------</div>
+            <br><br><br><br>
+            <div>-------------</div>
+            <div data-tl="game.info.lang"></div>
+            <div data-tl="game.info.langchange"></div>
+            <div>-------------</div>
+            <div data-tl="lang.name"></div>
+            <div data-tl="lang.author"></div>
+            <div data-tl="lang.ver"></div>
+            <div>-------------</div>
+            <br><br><br><br>
+            <div>-------------</div>
+            <div data-tl="game.info.level"></div>
+            <div>-------------</div>
+            <div id='li-name'></div>
+            <div id='li-author'></div>
+            <div id='li-version'></div>
+            <div>-------------</div>
+        </div>
+
+        <div id="editor-menu-button" onclick="LevelEditorInstance.openLevelEditorMenu()" data-tl="editor.ui.menu.button.text" data-tt-tl="editor.ui.menu.button.hover" data-tt-w="16em">editor.ui.menu.button.text</div>
+        <div id="debug-menu-button" onclick="openDebugMenu()" data-tt-tl="debug.menu.button.hover" data-tt-w="13em" data-tl="debug.menu.button.text">debug.menu.button</div>
+        <div id="editor-quick-toggle" onclick="LevelEditorInstance.toggleEditorState()" style='display:none'><span data-tt-tl="editor.ui.shortcut" data-tl="editor.ui.enable"></span><input type="checkbox" id='editor-quick-toggle-cb'></div>
+        <div id="sidebar"></div>
+        <div id="chat-box">
+            <div id="chat-box-buttons">
+                <input type="button" value="-" id="zoom-out-button"         onclick="camera.zoomOut()"          data-tt-tl="chat.zoom.out"    data-tt-w="5.7em" class="zoom-buttons">
+                <input type="button" value="0" id="reset-zoom-button"       onclick="camera.setZoom('default')" data-tt-tl="chat.zoom.reset"  data-tt-w="6.3em" class="zoom-buttons">
+                <input type="button" value="+" id="zoom-in-button"          onclick="camera.zoomIn()"           data-tt-tl="chat.zoom.in"     data-tt-w="5.3em" class="zoom-buttons">
+                <input type="button" value="x" id="toggle-chat-box-button"  onclick="toggleChatVisible()"       data-tt-tl="chat.toggle"      data-tt-w="6.5em">
+            </div>
+            <div id="chat-area"><span data-tl="chat.firstline">chat.firstline</span></div>
+        </div>
+        <div id="debug-menu" class="window" style="display:none">
+            <div id="debug-menu-draggable" class="window-draggable"></div>
+            <div class="window-content">
+                <div id="debug-render-options">
+                    <input type="button" value="twitch login" onclick="beginTwitchOauthFlow()"><br>
+                    <span data-tl="game.info.lang"></span>: <select id="langselect" onchange="changeLanguage()"></select>
+                    <table>
+                        <tr>
+                            <td data-tl="debug.menu.enable">Enable Debug Mode</td>
+                            <td><input id="enableDebugMode" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.disable" onclick="disableDebugModePrompt()" id="disableDebugMode">Disable Debug Mode</td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.info">Enable Debug Info Data</td>
+                            <td><input id="enableDebugSidebar" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.cameratarget">Render Camera Target</td>
+                            <td><input id="enableCameraTargetRendering" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.enable">Enable Debug Render Options</td>
+                            <td><input id="debugRenderOptionsEnabled" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.wireframes">Wireframes</td>
+                            <td><input id="showWireframes" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.sleeping">Show Sleeping</td>
+                            <td><input id="showSleeping" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.debug">Show Debug</td>
+                            <td><input id="showDebug" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.broadphase">Show Broadphase</td>
+                            <td><input id="showBroadphase" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.bounds">Show Bounds</td>
+                            <td><input id="showBounds" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.velocity">Show Velocity</td>
+                            <td><input id="showVelocity" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.collisions">Show Collisions</td>
+                            <td><input id="showCollisions" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.separations">Show Separations</td>
+                            <td><input id="showSeparations" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.axes">Show Axes</td>
+                            <td><input id="showAxes" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.positions">Show Positions</td>
+                            <td><input id="showPositions" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.angles">Show Angle Indicator</td>
+                            <td><input id="showAngleIndicator" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.ids">Show Ids</td>
+                            <td><input id="showIds" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.shadows">Show Shadows</td>
+                            <td><input id="showShadows" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.vertexs">Show Vertex Numbers</td>
+                            <td><input id="showVertexNumbers" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.convexhulls">Show Convex Hulls</td>
+                            <td><input id="showConvexHulls" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.internaledges">Show Internal Edges</td>
+                            <td><input id="showInternalEdges" type="checkbox" onclick="updateDebugRenderOptions()"></td>
+                        </tr>
+                        <tr>
+                            <td data-tl="debug.menu.render.mouse">Show Mouse Position</td>
+                            <td>no</td>
+                        </tr>
+                    </table>
+                    <div id="editor-menu-data">
+                        <span data-tl="editor.ui.menu.data.titledebug"></span><br>
+                        <textarea placeholder="editor import single objects debug thingy" id="editor-menu-data-box-debug"></textarea><br>
+                        <button data-tl="editor.ui.menu.data.importdebug" onclick="editor_import_debug()"></button> <span data-tl="editor.ui.menu.object.static.text"></span><input id="editor-menu-data-debug-static" type="checkbox">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="editor-menu" class="window" style="display:none" onclick='LevelEditorInstance.updateEditorOptions();'>
+            <div id="editor-menu-draggable" class="window-draggable">
+                <span class="window-buttons">
+                    <input type="checkbox" data-tt-tl="game.window.restrict" id='editor-menu-window-restriction' onclick="updateEditorWindowDraggableOptions()">
+                    <input type="checkbox" data-tt-tl="game.window.lock" id='editor-menu-window-lock' onclick="updateEditorWindowDraggableOptions()">
+                    <input type="checkbox" data-tt-tl="game.window.close" id="editor-menu-close-button" onclick="LevelEditorInstance.openLevelEditorMenu(true);this.checked = false;">
+                </span>
+            </div>
+            <div class="window-content">
+                <span data-tl="editor.ui.enable"></span><input type="checkbox" id='editor-menu-enable'><br>
+                <span data-tt-tl="editor.ui.menu.delete.hover" data-tl="editor.ui.menu.delete.text" data-tt-c="f00" data-tt-b="f00" data-tt-bg="323232ee"></span><input type='checkbox' id='editor-menu-delete'>
+                <div id="editor-menu-objects" style="background-color: #ff000044">
+                    <button data-tl="editor.ui.menu.object.types.hole" onclick="LevelEditorInstance.changeEditorObjectType('hole')"></button>
+                    <button data-tl="editor.ui.menu.object.types.ball" onclick="LevelEditorInstance.changeEditorObjectType('ball')"></button>
+                    <br>
+                    <button data-tl="editor.ui.menu.object.types.rect"     onclick="LevelEditorInstance.changeEditorObjectType('rect')"></button>
+                    <button data-tl="editor.ui.menu.object.types.circle"   onclick="LevelEditorInstance.changeEditorObjectType('circle')"></button>
+                    <button data-tl="editor.ui.menu.object.types.trap"     onclick="LevelEditorInstance.changeEditorObjectType('trap')"></button><br>
+                    <button data-tl="editor.ui.menu.object.types.regpoly"  onclick="LevelEditorInstance.changeEditorObjectType('reg-poly')"></button>
+                    <button data-tl="editor.ui.menu.object.types.poly"     onclick="LevelEditorInstance.changeEditorObjectType('poly')"></button>
+                    <button data-tl="editor.ui.menu.object.types.tri"      onclick="LevelEditorInstance.changeEditorObjectType('tri')"></button>
+                    <br>
+                    <span style='cursor:help' data-tl="editor.ui.menu.object.static.text" data-tt-tl="editor.ui.menu.object.static.hover"></span>
+                    <input type="checkbox" checked id='editor-menu-static'><br>
+                    <span style='cursor:help' data-tt-tl="editor.ui.menu.object.sides.hover" data-tl="editor.ui.menu.object.sides.text"></span>
+                    <input type='number' value="5" id='editor-menu-obj-sides'>
+                    <input type="checkbox" id="editor-menu-obj-sides-circle" data-tt="Enable this to make this option apply to circles<br>Not reccomended!"><br>
+                    <span data-tl="editor.ui.menu.object.color"></span><input type="color" id="editor-menu-obj-color" onchange="LevelEditorInstance.updateEditorOptions()">
+                </div><br>
+                <div id="editor-menu-comp-opts" style="background-color: #ffffff44">
+                    <span style="cursor: help" data-tt-tl="editor.ui.menu.composite.composite.hover" data-tl="editor.ui.menu.composite.composite.text"></span><br>
+                    <span data-tl="editor.ui.menu.composite.place"></span><input type="checkbox" id='editor-menu-place-comp'><br>
+                    <span style='cursor:help' data-tt-tl="editor.ui.menu.composite.chain.hover" data-tl="editor.ui.menu.composite.chain.text"></span>
+                    <input type="checkbox" id='editor-menu-c-chain'><br>
+                    <span data-tl="editor.ui.menu.composite.type"></span>
+                    <select id='editor-menu-comp-type'>
+                        <option value='pyramid' data-tl="editor.ui.menu.composite.types.pyramid">type.pyramid</option>
+                        <option value='stack' data-tl="editor.ui.menu.composite.types.stack">type.stack</option>
+                    </select>
+                    <br>
+                    <span data-tl="editor.ui.menu.composite.size.cols"></span><input type="number" id='editor-menu-c-cols'>
+                    <span data-tl="editor.ui.menu.composite.size.rows"></span><input type="number" id='editor-menu-c-rows'>
+                    <br>
+                    <span data-tl="editor.ui.menu.composite.size.colgap"></span><input type="number" id='editor-menu-c-colg'>
+                    <span data-tl="editor.ui.menu.composite.size.rowgap"></span><input type="number" id='editor-menu-c-rowg'> 
+                </div>
+                <div id="editor-menu-data">
+                    <span data-tl="editor.ui.menu.data.title"></span><br>
+                    <textarea placeholder="Click export or paste a level and click import!" id="editor-menu-data-box"></textarea><br>
+                    <button data-tl="editor.ui.menu.data.export" onclick="LevelEditorInstance.editor_export()"></button> | <button data-tl="editor.ui.menu.data.import" onclick="LevelEditorInstance.editor_import()"></button>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <!--<script>
+        //Example.terrain();
+    </script>-->
+</html>

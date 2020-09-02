@@ -1,0 +1,13 @@
+How to make a Twitch Golf language file:
+
+Copy the en_us.json file in this folder, and name it whatever you want it to be
+Open it with some text editor (notepad will work)
+Find the things you want to change, and edit them!
+you can delete entires in the file if you wish (they will fallback to en_us)
+note that if you mess up the file syntax, it could break everything in the file!
+
+you also should change the `lang.id`, `lang.author`, and `lang.ver` properies
+
+to use the language file in the game, open `lang_list.json` in this folder, and add line between the first line with a `[` and the last line with a `]` in this format:
+{"name": "name of language", "file": "name_of_lang_file.json"}
+then open the game, open the debug menu, and select the language under the language option

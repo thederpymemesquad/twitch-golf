@@ -1,0 +1,47 @@
+Twitch Golf changelog. im not adding previous versions to the change log
+
+editor-update-alpha-0:
+made the editor and debug menu windows movable and resizable
+    - you move them from the white bar at the top of the window
+    - the editor window can be locked, and you can choose if you want to allow the window to go out of the area of the page
+made the number input boxes in the level editor menu much smaller because before they were THICC
+made the hole a little bit less unpredictable
+fixed level editor loading placed objects being centered on the top left corner of where it is supposed to be
+added an option to the editor menu to change object color
+added an option in the level format to skip alignment of a rectangle object. (can be overridden with the skipAlignment parameter on loadBodyFromJSON())
+    - when this option is not selected on an rect (which is the default), its XY position is where its top left corner is
+    - when this option is selected, its XY position is where its center is
+    - if this option is put onto an object that is not a rect, nothing changes (the setting is ignored)
+    - this option isnt avaliable in the level editor itself due to it only causing confusion due to the way the editor works
+moved some things around in the level editor menu. probably going to make a whole new ui for it eventually because it looks awful right now
+
+
+
+updated localization files
+
+alpha-0:
+added import/export box for level data
+added import box for single objects (debug feature)
+slightly changed how level loading works
+
+lang-test-alpha-1:
+added language selector, and owonesse language.
+language selector is currently in debug menu
+you can add your own language by making a file in ./js/lang/ and adding an entry to lang_list.json
+
+plans for next version:
+make an options menu with various settings, and move language selector to it instead of debug menu
+maybe more level editor stuff probably
+
+lang-test-alpha-0:
+added the lodash library
+moved some files around to be a bit neater
+made most text translatable with a language file
+added the first language file
+replace the `input type=button`s in the level editor menu for object types with normal `button` tags
+added a thing above the level info to show language info
+added this changelog
+
+plans for next version:
+add some sort of language picker using the lang_list.json file
+not sure what else
